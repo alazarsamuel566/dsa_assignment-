@@ -21,7 +21,7 @@ def delete():
         right_stack.pop()
 
 def show():
-    print("".join(left_stack) + "|" + "".join(reversed(right_stack)))
+    print("".join(left_stack) + "|" + "".join(reversed(right_stack)), flush=True)
 
 while True:
     cmd = input("> ").strip()
