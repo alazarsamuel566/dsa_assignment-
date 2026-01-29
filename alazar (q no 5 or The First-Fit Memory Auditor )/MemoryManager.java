@@ -54,10 +54,14 @@ public class MemoryManager {
     }
 
     private int alignSize(int size) {
-        if (size % ALIGNMENT == 0) {
+        int remainder = size % ALIGNMENT;
+
+        if (remainder == 0) {
             return size;
         }
-        return ((size / ALIGNMENT) + 1) * ALIGNMENT;
+
+        int alignedSize = size + (ALIGNMENT - remainder);
+        return alignedSize;
     }
 
     public void allocate(String id, int requestedSize) {
